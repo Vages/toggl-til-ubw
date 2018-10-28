@@ -40,6 +40,13 @@ def extract_activity_name_from_string(some_string):
         return
 
 
+def extract_absence_type_from_string(some_string):
+    try:
+        return some_string.split("fravær:")[1]
+    except IndexError:
+        return
+
+
 def extract_time_code_from_string(some_string):
     time_code_regex = re.compile('timekode:([0-9\-]*)')
     search_result = time_code_regex.search(some_string)
@@ -58,6 +65,17 @@ def get_activity_name_from_entry(entry):
         activity_name = extract_activity_name_from_string(tag)
         if activity_name:
             return activity_name
+
+    return ""
+
+
+def get_absence_type_from_entry(entry):
+    the_tags = split_tags(entry[TAGS])
+
+    for tag in the_tags:
+        absence_type = extract_absence_type_from_string(tag)
+        if absence_type:
+            return absence_type
 
     return ""
 
@@ -89,6 +107,7 @@ def group_entries_as_they_should_be(all_entries):
         fingerprint = (
             get_time_code_from_entry(entry),
             get_activity_name_from_entry(entry),
+            get_absence_type_from_entry(entry),
             get_description_from_entry(entry),
             get_start_date_from_entry(entry),
         )
