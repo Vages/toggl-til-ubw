@@ -67,7 +67,10 @@ def get_hours_worked_on_task_on_a_given_day(all_entries, task_description, day):
 
 
 def extract_activity_name_from_string(some_string):
-    return
+    try:
+        return some_string.split("aktivitet:")[1]
+    except IndexError:
+        return
 
 
 def extract_time_code_from_string(some_string):
@@ -77,10 +80,30 @@ def extract_time_code_from_string(some_string):
         return search_result.group(1)
 
 
-def get_time_code_from_entry(entry):
-    the_tag = entry[TAGS]
+def split_tags(tag_list):
+    return tag_list.split(',')
 
-    return extract_time_code_from_string(the_tag)
+
+def get_activity_name_from_entry(entry):
+    the_tags = split_tags(entry[TAGS])
+
+    for tag in the_tags:
+        activity_name = extract_activity_name_from_string(tag)
+        if activity_name:
+            return activity_name
+
+    return ""
+
+
+def get_time_code_from_entry(entry):
+    the_tags = split_tags(entry[TAGS])
+
+    for tag in the_tags:
+        time_code = extract_time_code_from_string(tag)
+        if time_code:
+            return time_code
+
+    return ""
 
 
 def convert_toggl_report_to_python_array(file_path):
@@ -88,6 +111,11 @@ def convert_toggl_report_to_python_array(file_path):
     by_description = group_time_entries_by_description(time_entries)
     all_descriptions = list(by_description.keys())
     combined_entries = []
+
+    # There is an assumption here that something with the same description does not have different activities.
+    # Or that they have a description at all!
+    # But they may. We should group by some tuple here instead.
+    # TODO: Change the grouping mechanism
     for group in by_description:
         by_start_date = group_time_entries_by_start_date(by_description[group])
 
@@ -100,10 +128,11 @@ def convert_toggl_report_to_python_array(file_path):
     the_main_table = []
     for description in all_descriptions:
         index_of_first_item_because_it_is_as_good_as_any = 0
-        the_time_code = get_time_code_from_entry(
-            by_description[description][index_of_first_item_because_it_is_as_good_as_any])
+        first_entry = by_description[description][index_of_first_item_because_it_is_as_good_as_any]
+        the_time_code = get_time_code_from_entry(first_entry)
+        the_activity_name = get_activity_name_from_entry(first_entry)
 
-        the_row = [the_time_code, description.strip()]
+        the_row = [the_time_code, the_activity_name.strip(), description.strip()]
 
         for day in all_dates_in_range:
             the_row.append(str(get_hours_worked_on_task_on_a_given_day(combined_entries, description, day)))

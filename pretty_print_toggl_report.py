@@ -1,16 +1,9 @@
 #!/usr/local/bin/python3
 from convert_toggl_report import convert_toggl_report_to_python_array
 
-HEADERS = ["Timekode", "Beskrivelse"]
-
 
 def create_table_from_two_d_array(two_d_array):
-    # x = PrettyTable()
     first_row = two_d_array[0]
-    #
-    # number_of_columns_to_pad = len(first_row) - len(HEADERS)
-    #
-    # x.field_names = HEADERS + [""] * number_of_columns_to_pad
 
     maxes = [0] * len(first_row)
     sums = [0] * len(first_row)
