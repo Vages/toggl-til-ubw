@@ -66,6 +66,10 @@ def get_hours_worked_on_task_on_a_given_day(all_entries, task_description, day):
         return 0
 
 
+def extract_activity_name_from_string(some_string):
+    return
+
+
 def extract_time_code_from_string(some_string):
     time_code_regex = re.compile('timekode:([0-9\-]*)')
     search_result = time_code_regex.search(some_string)
@@ -73,7 +77,7 @@ def extract_time_code_from_string(some_string):
         return search_result.group(1)
 
 
-def get_task_number_from_entry(entry):
+def get_time_code_from_entry(entry):
     the_tag = entry[TAGS]
 
     return extract_time_code_from_string(the_tag)
@@ -96,10 +100,10 @@ def convert_toggl_report_to_python_array(file_path):
     the_main_table = []
     for description in all_descriptions:
         index_of_first_item_because_it_is_as_good_as_any = 0
-        the_task_number = get_task_number_from_entry(
+        the_time_code = get_time_code_from_entry(
             by_description[description][index_of_first_item_because_it_is_as_good_as_any])
 
-        the_row = [the_task_number, description.strip()]
+        the_row = [the_time_code, description.strip()]
 
         for day in all_dates_in_range:
             the_row.append(str(get_hours_worked_on_task_on_a_given_day(combined_entries, description, day)))
