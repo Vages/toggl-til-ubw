@@ -7,7 +7,7 @@ def create_table_from_two_d_array(two_d_array):
 
     maxes = [0] * len(first_row)
     sums = [0] * len(first_row)
-    column_where_the_hour_numbers_start = 2
+    column_where_the_hour_numbers_start = 3
 
     for row in two_d_array:
         for i, item in enumerate(row):
