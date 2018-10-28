@@ -1,5 +1,5 @@
 from unittest import TestCase
-from convert_toggl_report import two_d_array_to_csv, convert_toggl_report_to_python_array
+from convert_toggl_report import two_d_array_to_csv, convert_toggl_report_to_python_array, extract_time_code_from_string
 
 the_output = """32010000-7,Bandrigging til Halloween-fest,0,0,0,0,4.5
 32010005-31,Julekalenderoppgaver,0,0,0,1.5,0
@@ -11,6 +11,11 @@ the_output = """32010000-7,Bandrigging til Halloween-fest,0,0,0,0,4.5
 
 
 class TestConvertTogglReport(TestCase):
+    def test_extract_time_code_from_string(self):
+        self.assertEqual("32010054-3", extract_time_code_from_string("foo tttimekode:32010054-3 bar"))
+        self.assertEqual("32010054", extract_time_code_from_string("foo tttimekode:32010054 bar"))
+        self.assertEqual(None, extract_time_code_from_string("foo bar"))
+
     def test_the_big_convert_function(self):
         self.assertEqual(
             the_output,

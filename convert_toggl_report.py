@@ -3,6 +3,7 @@ import csv
 from collections import defaultdict
 from time_helpers import add_two_durations, get_all_dates_in_range_inclusive, round_duration_to_nearest_half_hour, \
     convert_duration_to_hour_number
+import re
 
 DESCRIPTION = 'description'
 START_DATE = 'start_date'
@@ -65,11 +66,17 @@ def get_hours_worked_on_task_on_a_given_day(all_entries, task_description, day):
         return 0
 
 
+def extract_time_code_from_string(some_string):
+    time_code_regex = re.compile('tttimekode:([0-9\-]*)')
+    search_result = time_code_regex.search(some_string)
+    if search_result:
+        return search_result.group(1)
+
+
 def get_task_number_from_entry(entry):
     the_tag = entry[TAGS]
 
-    the_part_where_the_task_number_is = 0
-    return the_tag.split(' ')[the_part_where_the_task_number_is]
+    return extract_time_code_from_string(the_tag)
 
 
 def convert_toggl_report_to_python_array(file_path):
