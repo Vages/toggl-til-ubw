@@ -12,9 +12,11 @@ the_output = """32010000-7,Bandrigging til Halloween-fest,0,0,0,0,4.5
 
 class TestConvertTogglReport(TestCase):
     def test_extract_time_code_from_string(self):
-        self.assertEqual("32010054-3", extract_time_code_from_string("foo tttimekode:32010054-3 bar"))
-        self.assertEqual("32010054", extract_time_code_from_string("foo tttimekode:32010054 bar"))
+        self.assertEqual("32010054-3", extract_time_code_from_string("foo bar timekode:32010054-3"))
+        self.assertEqual("32010054-3", extract_time_code_from_string("foo timekode:32010054-3 bar"))
+        self.assertEqual("32010054", extract_time_code_from_string("foo timekode:32010054 bar"))
         self.assertEqual(None, extract_time_code_from_string("foo bar"))
+        self.assertEqual(None, extract_time_code_from_string("foo ny timekode bar"))
 
     def test_the_big_convert_function(self):
         self.assertEqual(

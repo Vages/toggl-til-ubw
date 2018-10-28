@@ -67,7 +67,7 @@ def get_hours_worked_on_task_on_a_given_day(all_entries, task_description, day):
 
 
 def extract_time_code_from_string(some_string):
-    time_code_regex = re.compile('tttimekode:([0-9\-]*)')
+    time_code_regex = re.compile('timekode:([0-9\-]*)')
     search_result = time_code_regex.search(some_string)
     if search_result:
         return search_result.group(1)
