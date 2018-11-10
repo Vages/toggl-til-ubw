@@ -1,1 +1,0 @@
-['/Users/eirikvageskar/PycharmProjects/ubw/convert_toggl_report.py']
