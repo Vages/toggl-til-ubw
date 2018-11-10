@@ -1,4 +1,4 @@
-# Toggl til UBW
+# Toggl-2-UBW
 Konverterer Toggl-timer til en TSV som kan legges inn i [*Unngå UBW*](https://github.com/arve0/uubw).
 Timene rundes av til nærmeste halvtime.
 Tidsstykker fra samme dag med samme beskrivelse og timekode blir slått sammen.
@@ -12,7 +12,7 @@ Du er selv ansvarlig for at timelistene du sender inn er riktige.
 Bruksveiledningen er å oppfatte som en beskrivelse av hvordan det er tenkt å fungere &ndash; ikke en garanti for at det faktisk vil fungere.
 
 ### Men sånn for å lette på stemninga (nå er det juridiske over) &hellip;
-&hellip; vi har gjort vårt beste, altså! Bare se over timene før du sender dem inn, så går det nok bra.
+Bare se over timene før du sender dem inn, så går det nok bra.
 
 ## Bruk
 Vi antar at du har installert Python3: `$ brew install python3`
