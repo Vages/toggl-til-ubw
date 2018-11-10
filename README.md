@@ -15,8 +15,8 @@ Tidsstykker med samme beskrivelse og timekode fra samme dag blir slått sammen. 
       - [Aktivitet](#aktivitet)
     + [Fravær](#fravaer)
 - [Merknader](#merknader)
-  * [Kan jeg ha flere merkelapper/prosjekter &hellip;?](#kan-jeg-ha-flere-merkelapperprosjekter-hellip)
-  * [Avrunding](#avrunding)
+  * [Jeg bruker Toggl på min egen måte. Kan jeg fortsette å gjøre det?](#jeg-bruker-toggl-pa-min-egen-mate-kan-jeg-fortsette-a-gjore-det)
+  * [Hvordan runder skriptet av?](#hvordan-runder-skriptet-av)
 
 <!-- tocstop -->
 
