@@ -52,6 +52,8 @@ python3 ./convert_toggl_report.py  ./__test__/Toggl_time_entries_2018-10-08_to_2
 ```
 
 ### Merking av timer
+Skriptet baserer seg stort sett på at man legger inn informasjon i merkelapper (tags) i Toggl.
+
 |Toggl desktop|UBW|
 |-|-|
 |![Skjermdump av hvordan det skal se ut i Toggl desktop](assets/README-7a015d7b.png)|![Skjermdump av hvordan det skal se ut i UBW](assets/README-5d166285.png)|
@@ -78,15 +80,16 @@ For å merke noe som fravær må du merke den med `timekode:ABSENCE`.
 *Unngå UBW* kommer til å søke på det som står i beskrivelsesfeltet, ned til hvert minste tegn. For eksempel må du reprodusere det manglende mellomrommet og andre særegenheter i `Lege, tannlege,fysioterapi besøk`.
 
 Hvis enheten for fraværstypen føres i en annen enhet enn timer (for eksempel dager), er du nødt til å føre én time per enhet.
+For eksempel må du føre én time for en dags lunsjpenger eller én time for en feriedag.
 
 *Eksempel:* `timekode:ABSENCE`.
 
 ## Merknader
 
-### Kan jeg ha flere merkelapper/prosjekter &hellip;?
-Jada, du står fritt til å ha så mange merkelapper du vil og organisere Toggl-prosjektene slik du vil, så lenge det ikke kommer i kollisjon med reglene her.
+### Jeg bruker Toggl på min egen måte. Kan jeg fortsette å gjøre det?
+Så lenge du ikke kommer i kollisjon med reglene her, burde det gå helt fint.
 
-### Avrunding
+### Hvordan runder skriptet av?
 Skriptet følger avrundingsregelen fra norske barneskoler (under L97-læreplanen): Når det er uavgjort, runder man oppover.
 
 *Eksempel:*
