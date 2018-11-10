@@ -1,4 +1,4 @@
-# Toggl-2-UBW
+# Toggl til UBW
 Konverterer Toggl-timer til en TSV som kan legges inn i [*Unngå UBW*](https://github.com/arve0/uubw).
 Timene rundes av til nærmeste halvtime.
 Tidsstykker fra samme dag med samme beskrivelse og timekode blir slått sammen.
