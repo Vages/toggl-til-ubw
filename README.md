@@ -26,7 +26,7 @@ Beklager at jeg må starte kjipt, men siden det er snakk om *mange* penger, må 
 **Ved å bruke denne programvaren anerkjenner du at du har lest og er enig i det følgende:**
 Du har selv det hele og fulle ansvaret for konsekvensene ved å bruke denne programvaren.
 Vi som har laget den har ikke noe ansvar for negative konsekvenser som følge av bruk, deriblant økonomisk tap.
-Bruksveiledningen er å oppfatte som en beskrivelse av hvordan det er tenkt å fungere &ndash; ikke en garanti.
+Bruksveiledningen er å oppfatte som en beskrivelse av hvordan programvaren er tenkt å fungere &ndash; ikke en garanti.
 
 **Men sånn for å lette på stemninga (nå er det juridiske over) &hellip;**  
 Bare se over timene før du sender dem inn, så går det nok bra.
@@ -37,7 +37,7 @@ Vi antar at du har installert Python3.
 
 Last ned en [detaljert rapport](https://toggl.com/app/reports/detailed/) som CSV fra Toggl: Velg tidsrommet og prosjektene som skal inn i timelisten, trykk «Export» og «Download as CSV».
 
-![](assets/README-cbca689f.png)
+![Skjermbilde som viser hvor man skal trykke for å laste ned en detaljert rapport som CSV](assets/README-cbca689f.png)
 
 Åpne en terminal og skriv:
 
